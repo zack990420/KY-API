@@ -1,12 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "249pefyPdaruD0D4lgaizsVwrcyvuRxaFNCGJBuyei4=",
-  "Source": "KYAPI",
-  "BasePath": "_content/KYAPI",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
-}
+{"Version":1,"Hash":"YgBf2PJ8qrjN/ouhjfzPst+znUURdxI+wWR/g3M+VC4=","Source":"KYAPI","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
