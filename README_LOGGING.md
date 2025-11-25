@@ -80,7 +80,7 @@ Each log entry includes:
 2025-11-25 12:19:49.123 +08:00 [INF] User 123 logged in
 2025-11-25 12:19:50.456 +08:00 [ERR] Failed to process order 456
 System.Exception: Order not found
-   at MyWebApi.Controllers.OrderController.Process()
+   at KYAPI.Controllers.OrderController.Process()
 ```
 
 ## Configuration

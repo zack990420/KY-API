@@ -1,6 +1,6 @@
 using HashidsNet;
 
-namespace MyWebApi.Services;
+namespace KYAPI.Services;
 
 public class IdHasher : IIdHasher
 {

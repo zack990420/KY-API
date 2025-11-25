@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MyWebApi.Entities;
+using KYAPI.Entities;
 
-namespace MyWebApi.Data;
+namespace KYAPI.Data;
 
 public class AppDbContext : IdentityDbContext<
     ApplicationUser,

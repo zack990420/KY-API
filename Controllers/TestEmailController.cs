@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MyWebApi.Services;
+using KYAPI.Services;
 
-namespace MyWebApi.Controllers;
+namespace KYAPI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

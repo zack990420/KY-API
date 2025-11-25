@@ -1,6 +1,6 @@
-using MyWebApi.Entities;
+using KYAPI.Entities;
 
-namespace MyWebApi.Repositories;
+namespace KYAPI.Repositories;
 
 public interface IBlobRepository
 {

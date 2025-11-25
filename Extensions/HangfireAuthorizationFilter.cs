@@ -1,6 +1,6 @@
 using Hangfire.Dashboard;
 
-namespace MyWebApi.Extensions;
+namespace KYAPI.Extensions;
 
 public class HangfireAuthorizationFilter : IDashboardAuthorizationFilter
 {

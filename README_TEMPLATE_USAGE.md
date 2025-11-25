@@ -18,11 +18,11 @@ git init
 ```
 
 ### Step 3: Rename Project Files (Manual or Script)
-You need to rename `MyWebApi` to `NewProjectName` in:
-1.  **Folder Names**: `MyWebApi` -> `NewProjectName`
-2.  **Solution File**: `MyWebApi.sln` -> `NewProjectName.sln`
-3.  **Project File**: `MyWebApi.csproj` -> `NewProjectName.csproj`
-4.  **Namespaces**: Find & Replace `namespace MyWebApi` -> `namespace NewProjectName` in all `.cs` files.
+You need to rename `KYAPI` to `NewProjectName` in:
+1.  **Folder Names**: `KYAPI` -> `NewProjectName`
+2.  **Solution File**: `KYAPI.sln` -> `NewProjectName.sln`
+3.  **Project File**: `KYAPI.csproj` -> `NewProjectName.csproj`
+4.  **Namespaces**: Find & Replace `namespace KYAPI` -> `namespace NewProjectName` in all `.cs` files.
 5.  **LaunchSettings**: Update `Properties/launchSettings.json` if needed.
 
 ## 2. Setup Environment

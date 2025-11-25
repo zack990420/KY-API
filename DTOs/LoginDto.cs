@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MyWebApi.DTOs;
+namespace KYAPI.DTOs;
 
 public class LoginDto
 {

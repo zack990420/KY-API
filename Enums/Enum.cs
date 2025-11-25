@@ -1,4 +1,4 @@
-namespace MyWebApi.Enums;
+namespace KYAPI.Enums;
 
 public enum BlobType
 {

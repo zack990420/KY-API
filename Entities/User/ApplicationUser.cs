@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace MyWebApi.Entities;
+namespace KYAPI.Entities;
 
 public class ApplicationUser : IdentityUser<long>
 {

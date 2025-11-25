@@ -1,9 +1,9 @@
 using Azure.Storage.Blobs;
-using MyWebApi.Entities;
-using MyWebApi.Enums;
-using MyWebApi.Repositories;
+using KYAPI.Entities;
+using KYAPI.Enums;
+using KYAPI.Repositories;
 
-namespace MyWebApi.Services;
+namespace KYAPI.Services;
 
 public class BlobStorageService : IBlobStorageService
 {

@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using MyWebApi.Data;
-using MyWebApi.Entities;
-using MyWebApi.Extensions;
-using MyWebApi.Repositories;
+using KYAPI.Data;
+using KYAPI.Entities;
+using KYAPI.Extensions;
+using KYAPI.Repositories;
 using Serilog;
 
 // Configure Serilog

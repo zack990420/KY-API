@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v9.0": {
-      "MyWebApi/1.0.0": {
+      "KYAPI/1.0.0": {
         "dependencies": {
           "Azure.Storage.Blobs": "12.26.0",
           "Hangfire.AspNetCore": "1.8.22",
@@ -24,7 +24,7 @@
           "Swashbuckle.AspNetCore": "6.9.0"
         },
         "runtime": {
-          "MyWebApi.dll": {}
+          "KYAPI.dll": {}
         }
       },
       "Azure.Core/1.47.3": {
@@ -1327,7 +1327,7 @@
     }
   },
   "libraries": {
-    "MyWebApi/1.0.0": {
+    "KYAPI/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

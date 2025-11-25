@@ -6290,11 +6290,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Work\\MyWebApi\\MyWebApi.csproj",
-      "projectName": "MyWebApi",
-      "projectPath": "C:\\Work\\MyWebApi\\MyWebApi.csproj",
+      "projectUniqueName": "C:\\Work\\KY-API\\KYAPI.csproj",
+      "projectName": "KYAPI",
+      "projectPath": "C:\\Work\\KY-API\\KYAPI.csproj",
       "packagesPath": "C:\\Users\\tzeya\\.nuget\\packages\\",
-      "outputPath": "C:\\Work\\MyWebApi\\obj\\",
+      "outputPath": "C:\\Work\\KY-API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

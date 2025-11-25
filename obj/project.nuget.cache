@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A9FTfVBk4Dw=",
+  "dgSpecHash": "5r0rul9lBR0=",
   "success": true,
-  "projectFilePath": "C:\\Work\\MyWebApi\\MyWebApi.csproj",
+  "projectFilePath": "C:\\Work\\KY-API\\KYAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tzeya\\.nuget\\packages\\azure.core\\1.47.3\\azure.core.1.47.3.nupkg.sha512",
     "C:\\Users\\tzeya\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

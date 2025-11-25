@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
-using MyWebApi.Enums;
+using KYAPI.Enums;
 
-namespace MyWebApi.Entities;
+namespace KYAPI.Entities;
 
 public class BlobFileEntity
 {

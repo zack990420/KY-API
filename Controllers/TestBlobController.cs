@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using MyWebApi.Enums;
-using MyWebApi.Services;
+using KYAPI.Enums;
+using KYAPI.Services;
 
-namespace MyWebApi.Controllers;
+namespace KYAPI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

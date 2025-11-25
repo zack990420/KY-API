@@ -1,4 +1,4 @@
-namespace MyWebApi.DTOs;
+namespace KYAPI.DTOs;
 
 public record WeatherForecastDto(string Id, DateOnly Date, int TemperatureC, string? Summary)
 {

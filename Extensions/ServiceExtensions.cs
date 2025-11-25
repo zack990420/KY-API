@@ -1,7 +1,7 @@
-using MyWebApi.Repositories;
-using MyWebApi.Services;
+using KYAPI.Repositories;
+using KYAPI.Services;
 
-namespace MyWebApi.Extensions;
+namespace KYAPI.Extensions;
 
 public static class ServiceExtensions
 {

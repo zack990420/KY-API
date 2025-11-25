@@ -1,6 +1,6 @@
-using MyWebApi.Enums;
+using KYAPI.Enums;
 
-namespace MyWebApi.Services;
+namespace KYAPI.Services;
 
 public interface IBlobStorageService
 {

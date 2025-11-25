@@ -1,0 +1,6 @@
+@KYAPI_HostAddress = http://localhost:5086
+
+GET {{KYAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

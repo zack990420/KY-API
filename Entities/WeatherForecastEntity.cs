@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MyWebApi.Entities;
+namespace KYAPI.Entities;
 
 public class WeatherForecastEntity
 {

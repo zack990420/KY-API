@@ -89,7 +89,7 @@ dotnet run
 ### Production
 ```bash
 export ASPNETCORE_ENVIRONMENT=Production
-dotnet MyWebApi.dll
+dotnet KYAPI.dll
 # Uses: appsettings.json only
 ```
 

@@ -1,6 +1,6 @@
 using System.Net.Http.Json;
 
-namespace MyWebApi.Services;
+namespace KYAPI.Services;
 
 public class HttpService : IHttpService
 {

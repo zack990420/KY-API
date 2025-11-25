@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using MyWebApi.DTOs;
-using MyWebApi.Entities;
+using KYAPI.DTOs;
+using KYAPI.Entities;
 
-namespace MyWebApi.Controllers;
+namespace KYAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

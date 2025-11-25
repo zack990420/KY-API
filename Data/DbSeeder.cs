@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
-using MyWebApi.Entities;
+using KYAPI.Entities;
 
-namespace MyWebApi.Data;
+namespace KYAPI.Data;
 
 public static class DbSeeder
 {

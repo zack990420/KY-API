@@ -1,6 +1,6 @@
 using System.Security.Claims;
 
-namespace MyWebApi.Services;
+namespace KYAPI.Services;
 
 public class CurrentUserService : ICurrentUserService
 {

@@ -1,4 +1,4 @@
-namespace MyWebApi.Services;
+namespace KYAPI.Services;
 
 public interface IBackgroundJobService
 {

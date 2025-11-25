@@ -1,19 +1,19 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MyWebApi.DTOs;
-using MyWebApi.Entities;
-using MyWebApi.Repositories;
+using KYAPI.DTOs;
+using KYAPI.Entities;
+using KYAPI.Repositories;
 
-namespace MyWebApi.Controllers;
+namespace KYAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
     private readonly IWeatherRepository _repository;
-    private readonly MyWebApi.Services.IIdHasher _idHasher;
+    private readonly KYAPI.Services.IIdHasher _idHasher;
 
-    public WeatherForecastController(IWeatherRepository repository, MyWebApi.Services.IIdHasher idHasher)
+    public WeatherForecastController(IWeatherRepository repository, KYAPI.Services.IIdHasher idHasher)
     {
         _repository = repository;
         _idHasher = idHasher;

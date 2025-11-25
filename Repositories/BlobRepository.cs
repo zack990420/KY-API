@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using MyWebApi.Data;
-using MyWebApi.Entities;
+using KYAPI.Data;
+using KYAPI.Entities;
 
-namespace MyWebApi.Repositories;
+namespace KYAPI.Repositories;
 
 public class BlobRepository : IBlobRepository
 {
