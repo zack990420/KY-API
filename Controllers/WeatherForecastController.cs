@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using KYAPI.DTOs;
 using KYAPI.Entities;
 using KYAPI.Repositories;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace KYAPI.Controllers;
 
@@ -24,13 +24,22 @@ public class WeatherForecastController : ControllerBase
     public async Task<IEnumerable<WeatherForecastDto>> Get()
     {
         var entities = await _repository.GetAllAsync();
-        
+
         // If empty, seed some data (just for demo purposes to match original behavior)
         if (!entities.Any())
         {
             var summaries = new[]
             {
-                "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+                "Freezing",
+                "Bracing",
+                "Chilly",
+                "Cool",
+                "Mild",
+                "Warm",
+                "Balmy",
+                "Hot",
+                "Sweltering",
+                "Scorching",
             };
 
             var rng = new Random();
@@ -40,7 +49,7 @@ public class WeatherForecastController : ControllerBase
                 {
                     Date = DateOnly.FromDateTime(DateTime.Now.AddDays(i)),
                     TemperatureC = rng.Next(-20, 55),
-                    Summary = summaries[rng.Next(summaries.Length)]
+                    Summary = summaries[rng.Next(summaries.Length)],
                 };
                 await _repository.AddAsync(entity);
             }

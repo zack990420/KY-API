@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
 using KYAPI.Enums;
 using KYAPI.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace KYAPI.Controllers;
 
@@ -25,7 +25,14 @@ public class TestBlobController : ControllerBase
 
         using var stream = file.OpenReadStream();
         var userId = _currentUserService.GetUserId();
-        var url = await _blobService.UploadAsync("test-uploads", BlobContentType.User, file.FileName, stream, BlobType.Image, userId);
+        var url = await _blobService.UploadAsync(
+            "test-uploads",
+            BlobContentType.User,
+            file.FileName,
+            stream,
+            BlobType.Image,
+            userId
+        );
         return Ok(new { Url = url, UserId = userId });
     }
 }

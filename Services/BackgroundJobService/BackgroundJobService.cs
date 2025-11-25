@@ -21,14 +21,14 @@ public class BackgroundJobService : IBackgroundJobService
     public void SendWelcomeEmail(string email, string username)
     {
         _logger.LogInformation("Sending welcome email to {Email}", email);
-        
+
         try
         {
             var subject = "Welcome to MyWebApi!";
             var body = $"<h1>Welcome {username}!</h1><p>Thank you for registering.</p>";
-            
+
             _emailService.SendEmailAsync(email, subject, body, isHtml: true).Wait();
-            
+
             _logger.LogInformation("Welcome email sent successfully to {Email}", email);
         }
         catch (Exception ex)
@@ -41,7 +41,7 @@ public class BackgroundJobService : IBackgroundJobService
     public void ProcessDataCleanup()
     {
         _logger.LogInformation("Starting data cleanup job");
-        
+
         try
         {
             // Example: Clean up old logs, expired tokens, etc.
@@ -57,7 +57,7 @@ public class BackgroundJobService : IBackgroundJobService
     public void GenerateMonthlyReport()
     {
         _logger.LogInformation("Starting monthly report generation");
-        
+
         try
         {
             // Example: Generate and email monthly reports

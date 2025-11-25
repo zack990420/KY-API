@@ -1,12 +1,12 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using KYAPI.DTOs;
+using KYAPI.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using KYAPI.DTOs;
-using KYAPI.Entities;
 
 namespace KYAPI.Controllers;
 
@@ -18,7 +18,11 @@ public class AuthController : ControllerBase
     private readonly RoleManager<ApplicationRole> _roleManager;
     private readonly IConfiguration _configuration;
 
-    public AuthController(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager, IConfiguration configuration)
+    public AuthController(
+        UserManager<ApplicationUser> userManager,
+        RoleManager<ApplicationRole> roleManager,
+        IConfiguration configuration
+    )
     {
         _userManager = userManager;
         _roleManager = roleManager;
@@ -31,17 +35,27 @@ public class AuthController : ControllerBase
     {
         var userExists = await _userManager.FindByNameAsync(model.Username);
         if (userExists != null)
-            return StatusCode(StatusCodes.Status500InternalServerError, new { Status = "Error", Message = "User already exists!" });
+            return StatusCode(
+                StatusCodes.Status500InternalServerError,
+                new { Status = "Error", Message = "User already exists!" }
+            );
 
         ApplicationUser user = new()
         {
             Email = model.Email,
             SecurityStamp = Guid.NewGuid().ToString(),
-            UserName = model.Username
+            UserName = model.Username,
         };
         var result = await _userManager.CreateAsync(user, model.Password);
         if (!result.Succeeded)
-            return StatusCode(StatusCodes.Status500InternalServerError, new { Status = "Error", Message = "User creation failed! Please check user details and ensure password complexity." });
+            return StatusCode(
+                StatusCodes.Status500InternalServerError,
+                new
+                {
+                    Status = "Error",
+                    Message = "User creation failed! Please check user details and ensure password complexity.",
+                }
+            );
 
         if (!await _roleManager.RoleExistsAsync(model.Role))
             await _roleManager.CreateAsync(new ApplicationRole { Name = model.Role });
@@ -80,21 +94,23 @@ public class AuthController : ControllerBase
                 expires: DateTime.Now.AddHours(3),
                 claims: authClaims,
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
-                );
+            );
 
             // Generate refresh token
             var refreshToken = GenerateRefreshToken();
             var refreshTokenValidityInDays = int.Parse(_configuration["Jwt:RefreshTokenValidityInDays"] ?? "7");
-            
+
             user.RefreshToken = refreshToken;
             user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(refreshTokenValidityInDays);
             await _userManager.UpdateAsync(user);
 
-            return Ok(new TokenResponse(
-                AccessToken: new JwtSecurityTokenHandler().WriteToken(token),
-                RefreshToken: refreshToken,
-                Expiration: token.ValidTo
-            ));
+            return Ok(
+                new TokenResponse(
+                    AccessToken: new JwtSecurityTokenHandler().WriteToken(token),
+                    RefreshToken: refreshToken,
+                    Expiration: token.ValidTo
+                )
+            );
         }
         return Unauthorized();
     }
@@ -142,16 +158,18 @@ public class AuthController : ControllerBase
 
         var newRefreshToken = GenerateRefreshToken();
         var refreshTokenValidityInDays = int.Parse(_configuration["Jwt:RefreshTokenValidityInDays"] ?? "7");
-        
+
         user.RefreshToken = newRefreshToken;
         user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(refreshTokenValidityInDays);
         await _userManager.UpdateAsync(user);
 
-        return Ok(new TokenResponse(
-            AccessToken: new JwtSecurityTokenHandler().WriteToken(newAccessToken),
-            RefreshToken: newRefreshToken,
-            Expiration: newAccessToken.ValidTo
-        ));
+        return Ok(
+            new TokenResponse(
+                AccessToken: new JwtSecurityTokenHandler().WriteToken(newAccessToken),
+                RefreshToken: newRefreshToken,
+                Expiration: newAccessToken.ValidTo
+            )
+        );
     }
 
     [HttpPost("revoke-token")]
@@ -190,14 +208,19 @@ public class AuthController : ControllerBase
             ValidIssuer = _configuration["Jwt:Issuer"],
             ValidAudience = _configuration["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!)),
-            ValidateLifetime = false // Don't validate expiration
+            ValidateLifetime = false, // Don't validate expiration
         };
 
         var tokenHandler = new JwtSecurityTokenHandler();
         var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out SecurityToken securityToken);
-        
-        if (securityToken is not JwtSecurityToken jwtSecurityToken || 
-            !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+
+        if (
+            securityToken is not JwtSecurityToken jwtSecurityToken
+            || !jwtSecurityToken.Header.Alg.Equals(
+                SecurityAlgorithms.HmacSha256,
+                StringComparison.InvariantCultureIgnoreCase
+            )
+        )
             throw new SecurityTokenException("Invalid token");
 
         return principal;

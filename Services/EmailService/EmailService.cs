@@ -1,7 +1,7 @@
+using KYAPI.Repositories;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
-using KYAPI.Repositories;
 
 namespace KYAPI.Services;
 
@@ -19,7 +19,7 @@ public class EmailService : IEmailService
     public async Task SendEmailAsync(string to, string subject, string body, bool isHtml = true)
     {
         var config = await _emailConfigRepository.GetActiveConfigAsync();
-        
+
         if (config == null)
         {
             throw new InvalidOperationException("No active email configuration found in database.");
@@ -44,11 +44,15 @@ public class EmailService : IEmailService
         using var client = new SmtpClient();
         try
         {
-            await client.ConnectAsync(config.SmtpHost, config.SmtpPort, config.EnableSsl ? SecureSocketOptions.StartTls : SecureSocketOptions.None);
+            await client.ConnectAsync(
+                config.SmtpHost,
+                config.SmtpPort,
+                config.EnableSsl ? SecureSocketOptions.StartTls : SecureSocketOptions.None
+            );
             await client.AuthenticateAsync(config.SmtpUsername, config.SmtpPassword);
             await client.SendAsync(message);
             await client.DisconnectAsync(true);
-            
+
             _logger.LogInformation("Email sent successfully to {To}", to);
         }
         catch (Exception ex)

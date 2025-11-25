@@ -8,12 +8,23 @@ $migrationsFolder = 'Migrations'
 $runningNumber = 1
 
 if (Test-Path $migrationsFolder) {
-    $pattern = "${MigrationName}_${date}_*"
-    $existingMigrations = Get-ChildItem -Path $migrationsFolder -Filter '*.cs' | Where-Object { $_.Name -like $pattern }
-    $runningNumber = $existingMigrations.Count + 1
+    # Look for existing migrations with same name and date (exclude .Designer.cs files)
+    $pattern = "${date}*_${MigrationName}_${date}_*.cs"
+    $existingMigrations = Get-ChildItem -Path $migrationsFolder -Filter '*.cs' | 
+        Where-Object { $_.Name -match "${date}\d+_${MigrationName}_${date}_\d+\.cs$" }
+    
+    if ($existingMigrations) {
+        # Extract the running numbers and get the max
+        $numbers = $existingMigrations | ForEach-Object {
+            if ($_.Name -match '_(\d{3})\.cs$') {
+                [int]$matches[1]
+            }
+        }
+        $runningNumber = ($numbers | Measure-Object -Maximum).Maximum + 1
+    }
 }
 
-$fullMigrationName = "${MigrationName}_${date}_$('{0:D3}' -f $runningNumber)"
+$fullMigrationName = "{0}_{1}_{2:D3}" -f $MigrationName, $date, $runningNumber
 
 Write-Host "Creating migration: $fullMigrationName" -ForegroundColor Cyan
 dotnet ef migrations add $fullMigrationName

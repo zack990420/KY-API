@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using KYAPI.Data;
 using KYAPI.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace KYAPI.Repositories;
 

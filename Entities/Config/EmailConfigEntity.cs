@@ -2,11 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace KYAPI.Entities;
 
-public class EmailConfigEntity
+public class EmailConfigEntity : BaseEntity
 {
-    [Key]
-    public long Id { get; set; }
-
     [Required]
     public string SmtpHost { get; set; } = string.Empty;
 

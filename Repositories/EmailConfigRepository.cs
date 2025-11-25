@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using KYAPI.Data;
 using KYAPI.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace KYAPI.Repositories;
 
@@ -15,7 +15,6 @@ public class EmailConfigRepository : IEmailConfigRepository
 
     public async Task<EmailConfigEntity?> GetActiveConfigAsync()
     {
-        return await _context.EmailConfigs
-            .FirstOrDefaultAsync(c => c.IsActive);
+        return await _context.EmailConfigs.FirstOrDefaultAsync(c => c.IsActive);
     }
 }

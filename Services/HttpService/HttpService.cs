@@ -22,11 +22,11 @@ public class HttpService : IHttpService
         var client = _httpClientFactory.CreateClient();
         var response = await client.PostAsJsonAsync(url, data);
         response.EnsureSuccessStatusCode();
-        
+
         // If T is string, read as string
         if (typeof(T) == typeof(string))
         {
-             return (T)(object)await response.Content.ReadAsStringAsync();
+            return (T)(object)await response.Content.ReadAsStringAsync();
         }
 
         // Otherwise try to deserialize from JSON (if content exists)

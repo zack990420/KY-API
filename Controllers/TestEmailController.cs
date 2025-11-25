@@ -1,6 +1,6 @@
+using KYAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using KYAPI.Services;
 
 namespace KYAPI.Controllers;
 

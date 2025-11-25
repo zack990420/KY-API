@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Identity;
 using KYAPI.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace KYAPI.Data;
 
@@ -8,7 +8,7 @@ public static class DbSeeder
     public static async Task SeedRolesAsync(RoleManager<ApplicationRole> roleManager)
     {
         string[] roleNames = { "Admin", "User" };
-        
+
         foreach (var roleName in roleNames)
         {
             if (!await roleManager.RoleExistsAsync(roleName))
@@ -27,7 +27,7 @@ public static class DbSeeder
             {
                 UserName = "admin",
                 Email = "admin@mywebapi.com",
-                EmailConfirmed = true
+                EmailConfirmed = true,
             };
 
             var result = await userManager.CreateAsync(adminUser, "Admin@123");
@@ -44,7 +44,7 @@ public static class DbSeeder
             {
                 UserName = "testuser",
                 Email = "testuser@mywebapi.com",
-                EmailConfirmed = true
+                EmailConfirmed = true,
             };
 
             var result = await userManager.CreateAsync(testUser, "User@123");
@@ -61,7 +61,16 @@ public static class DbSeeder
         {
             var summaries = new[]
             {
-                "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+                "Freezing",
+                "Bracing",
+                "Chilly",
+                "Cool",
+                "Mild",
+                "Warm",
+                "Balmy",
+                "Hot",
+                "Sweltering",
+                "Scorching",
             };
 
             var weatherData = new List<WeatherForecastEntity>();
@@ -69,12 +78,14 @@ public static class DbSeeder
 
             for (int i = 1; i <= 10; i++)
             {
-                weatherData.Add(new WeatherForecastEntity
-                {
-                    Date = DateOnly.FromDateTime(DateTime.Now.AddDays(i)),
-                    TemperatureC = random.Next(-20, 55),
-                    Summary = summaries[random.Next(summaries.Length)]
-                });
+                weatherData.Add(
+                    new WeatherForecastEntity
+                    {
+                        Date = DateOnly.FromDateTime(DateTime.Now.AddDays(i)),
+                        TemperatureC = random.Next(-20, 55),
+                        Summary = summaries[random.Next(summaries.Length)],
+                    }
+                );
             }
 
             context.WeatherForecasts.AddRange(weatherData);
@@ -95,7 +106,7 @@ public static class DbSeeder
                 FromEmail = "noreply@mywebapi.com",
                 FromName = "MyWebApi",
                 EnableSsl = true,
-                IsActive = true
+                IsActive = true,
             };
 
             context.EmailConfigs.Add(emailConfig);

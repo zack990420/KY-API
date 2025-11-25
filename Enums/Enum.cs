@@ -6,11 +6,11 @@ public enum BlobType
     Document,
     Video,
     Audio,
-    Other
+    Other,
 }
 
 public enum BlobContentType
 {
     //[1] User
-    User, 
+    User,
 }

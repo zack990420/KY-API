@@ -1,15 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNetCore.Identity;
 using KYAPI.Enums;
+using Microsoft.AspNetCore.Identity;
 
 namespace KYAPI.Entities;
 
-public class BlobFileEntity
+public class BlobFileEntity : BaseEntity
 {
-    [Key]
-    public long Id { get; set; }
-
     [Required]
     public string FileName { get; set; } = string.Empty;
 
@@ -23,12 +20,4 @@ public class BlobFileEntity
     public string BlobPath { get; set; } = string.Empty;
 
     public BlobContentType ContentType { get; set; }
-
-    public long EntryBy { get; set; }
-    
-    
-    [ForeignKey(nameof(EntryBy))]
-    public ApplicationUser? User { get; set; }
-
-    public DateTime EntryOn { get; set; } = DateTime.UtcNow;
 }
