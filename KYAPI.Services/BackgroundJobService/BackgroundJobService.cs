@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Logging;
+
 namespace KYAPI.Services;
 
 public interface IBackgroundJobService

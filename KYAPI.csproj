@@ -3,6 +3,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,4 +29,24 @@
     <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="KYAPI.Data\KYAPI.Data.csproj" />
+    <ProjectReference Include="KYAPI.DTOs\KYAPI.DTOs.csproj" />
+    <ProjectReference Include="KYAPI.Entities\KYAPI.Entities.csproj" />
+    <ProjectReference Include="KYAPI.Repositories\KYAPI.Repositories.csproj" />
+    <ProjectReference Include="KYAPI.Services\KYAPI.Services.csproj" />
+    <ProjectReference Include="KYAPI.Common\KYAPI.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="KYAPI.Common\**" />
+    <Compile Remove="KYAPI.Data\**" />
+    <Compile Remove="KYAPI.DTOs\**" />
+    <Compile Remove="KYAPI.Entities\**" />
+    <Compile Remove="KYAPI.Interfaces\**" />
+    <Compile Remove="KYAPI.Repositories\**" />
+    <Compile Remove="KYAPI.Services\**" />
+  </ItemGroup>
+
 </Project>

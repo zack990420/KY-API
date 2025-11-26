@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using KYAPI.Data;
 using KYAPI.DTOs;
 using KYAPI.Entities;
-using KYAPI.Services;
+using KYAPI.Interfaces;
 
 namespace KYAPI.Repositories;
 
 public class StaffRepository : BaseRepository<StaffInfo>, IStaffRepository
 {
-    private readonly KYAPI.Services.IIdHasher _idHasher;
+    private readonly IIdHasher _idHasher;
     private readonly UserManager<ApplicationUser> _userManager;
 
     public StaffRepository(AppDbContext context, IIdHasher idHasher, UserManager<ApplicationUser> userManager) : base(context)

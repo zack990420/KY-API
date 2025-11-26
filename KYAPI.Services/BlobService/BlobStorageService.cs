@@ -2,6 +2,7 @@ using Azure.Storage.Blobs;
 using KYAPI.Entities;
 using KYAPI.Enums;
 using KYAPI.Repositories;
+using Microsoft.Extensions.Configuration;
 
 namespace KYAPI.Services;
 

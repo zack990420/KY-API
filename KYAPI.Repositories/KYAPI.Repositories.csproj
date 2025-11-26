@@ -1,14 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <ProjectReference Include="..\KYAPI.Data\KYAPI.Data.csproj" />
-    <ProjectReference Include="..\KYAPI.Entities\KYAPI.Entities.csproj" />
-  </ItemGroup>
-
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KYAPI.Data\KYAPI.Data.csproj" />
+    <ProjectReference Include="..\KYAPI.Entities\KYAPI.Entities.csproj" />
+    <ProjectReference Include="..\KYAPI.Interfaces\KYAPI.Interfaces.csproj" />
+    <ProjectReference Include="..\KYAPI.DTOs\KYAPI.DTOs.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+  </ItemGroup>
 
 </Project>
